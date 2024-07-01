@@ -1,0 +1,16 @@
+Điểm danh ngày {0}
+**********************
+
+NHÂN VIÊN ĐI ĐÚNG GIỜ
+{1}
+-----------------
+
+NHÂN VIÊN ĐI MUỘN
+{2}
+-----------------
+
+NHÂN VIÊN VẮNG MẶT
+{3}
+
+**********************
+Bluecom Robot ghi nhận điểm danh vào lúc {4}

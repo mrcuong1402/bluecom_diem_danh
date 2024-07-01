@@ -1,0 +1,376 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="hanet_login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1146,1944</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_wf_template_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="62">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Description of the function of this workflow. Add specific details and business logic if it exists.&#xA;&#xA;*** META ***&#xA;Created on:    202X-0X-XX  ; sisua.developer&#xA;Modified on:  202X-0X-XX ; sisua.developer" DisplayName="hanet_login" sap:VirtualizedContainerService.HintSize="616,1879" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:CurrentJobInfo" Name="jobInfo" />
+      <Variable x:TypeArguments="x:String" Name="strHanetCredential" />
+      <Variable x:TypeArguments="x:String" Name="strOrchesFolder" />
+      <Variable x:TypeArguments="x:String" Name="strUsername" />
+      <Variable x:TypeArguments="ss:SecureString" Name="sstrPassword" />
+      <Variable x:TypeArguments="x:String" Name="strHanetLoginUrl" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="554,84" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="assign_test_arguments" sap:VirtualizedContainerService.HintSize="496,380" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Int32" Name="intRowIdx" />
+            <Variable x:TypeArguments="sd:DataTable" Name="dtaWorktray" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="log_using_test_arguments" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Warn" Message="[&quot;USING TEST ARGUMENTS!&quot;]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inv_utils_read_config_dict.xaml" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="wfs\_fmw\utils_read_config_dict.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="_dicConfiguration">[_dicConfig]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="_strConfigFile">configuration.xlsx</InArgument>
+              <InArgument x:TypeArguments="s:String[]" x:Key="_strarrConfigSheets">[New String(){"base"}]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <ui:MultipleAssign DisplayName="assign_wf_test_arguments" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4" />
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:GetCurrentJobInfo DisplayName="get_current_job_info" sap:VirtualizedContainerService.HintSize="554,57" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[jobInfo]" />
+    <ui:LogMessage DisplayName="log_starting_wf" sap:VirtualizedContainerService.HintSize="554,84" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[String.Format(&quot;--- Starting: {0} ---&quot;, jobInfo.WorkflowName)]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:MultipleAssign DisplayName="assign_wf_config_parameters" sap:VirtualizedContainerService.HintSize="554,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strHanetCredential]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[_dicConfig("HANET_CREDENTIAL").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strOrchesFolder]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[_dicConfig("ORCHES_FOLDER").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strHanetLoginUrl]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[_dicConfig("HANET_LOGIN_URL").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[strHanetCredential]" CacheStrategy="None" DisplayName="get_credential" FolderPath="[strOrchesFolder]" sap:VirtualizedContainerService.HintSize="554,84" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[sstrPassword]" Username="[strUsername]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:GetRobotCredential>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="use_browser_chrome_login_hanet" sap:VirtualizedContainerService.HintSize="554,1095" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="IfNotOpen" ScopeGuid="1de1a085-bb58-495d-b051-0aafe29e31d0" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="520,846" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="type_into_ten_dang_nhap" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="458,84" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="1de1a085-bb58-495d-b051-0aafe29e31d0" Text="[strUsername]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://account.hanet.ai/login?callback=%2Foauth%2Fauthorize%3Fclient_id%3Dhanetconnect20220804T123456%26scope%3Dopenid%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fconnect.hanet.ai%252Fapi%252Fauth%252Fcallback%252Fhanet" CvElementArea="478, 440, 408, 48" CvType="InputBox" DesignTimeRectangle="481, 443, 404, 44" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='' class='form-control form-control-solid px-6 ' aaname='' /&gt;" Guid="886db73c-1e8d-4cde-96e7-043bfa4263d0" ImageBase64="" InformativeScreenshot="304b087e6dd67257339f8883ab2f5fd8.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArea="479, 415, 98, 17" CvTextArgument="Ten dang nhap" CvType="Text" DesignTimeRectangle="481, 413, 96, 22" ElementType="Text" FriendlyName="'Tên đăng nhập'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='font-weight-bold text-dark' aaname='Tên đăng nhập' check:innerText='Tên đăng nhập' /&gt;" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="type_into_password" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="458,84" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" ScopeIdentifier="1de1a085-bb58-495d-b051-0aafe29e31d0" SecureText="[sstrPassword]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://account.hanet.ai/login?callback=%2Foauth%2Fauthorize%3Fclient_id%3Dhanetconnect20220804T123456%26scope%3Dopenid%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fconnect.hanet.ai%252Fapi%252Fauth%252Fcallback%252Fhanet" DesignTimeRectangle="481, 547, 404, 44" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' class='form-control form-control-solid px-6 ' aaname='' /&gt;" Guid="a65a004d-7b11-4dc2-8c16-34cc31b1e810" ImageBase64="" InformativeScreenshot="014372fb8940a41598ee9371e2f7c436.png" ScopeSelectorArgument="&lt;html app='chrome.exe' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArea="479, 518, 62, 17" CvTextArgument="Mat khau" CvType="Text" DesignTimeRectangle="481, 517, 60, 22" ElementType="Text" FriendlyName="'Mật khẩu'" FullSelectorArgument="&lt;webctrl aaname='Mật khẩu' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Mật khẩu' tag='LABEL' type='' class='font-weight-bold text-dark' check:innerText='Mật khẩu' /&gt;" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <ui:RetryScope DisplayName="rs_click_dang_nhap" sap:VirtualizedContainerService.HintSize="458,538" sap2010:WorkflowViewState.IdRef="RetryScope_1">
+              <ui:RetryScope.ActivityBody>
+                <ActivityAction>
+                  <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,331" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="click_dang_nhap" sap:VirtualizedContainerService.HintSize="354,84" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1de1a085-bb58-495d-b051-0aafe29e31d0" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://account.hanet.ai/login?callback=%2Foauth%2Fauthorize%3Fclient_id%3Dhanetconnect20220804T123456%26scope%3Dopenid%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fconnect.hanet.ai%252Fapi%252Fauth%252Fcallback%252Fhanet" CvElementArea="600, 673, 163, 47" CvTextArea="643, 687, 79, 19" CvTextArgument="Dang nhap" CvType="Button" DesignTimeRectangle="603, 675, 159, 42" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Đăng nhập'" FullSelectorArgument="&lt;webctrl id='kt_login_signin_submit' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='kt_login_signin_submit' tag='BUTTON' type='submit' class='btn btn-primary font-weight-bold px-10 py-2 my-3' aaname='Đăng nhập' check:innerText='Đăng nhập' /&gt;" Guid="10322c00-c48d-408a-8fc5-e87e31134641" InformativeScreenshot="abe7484c91bf1ed2b1f5997cc533c80d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <uix:Target CvElementArea="600, 673, 163, 47" CvTextArea="643, 687, 79, 19" CvTextArgument="Dang nhap" CvType="Button" DesignTimeRectangle="644, 686, 77, 19" ElementType="Text" FriendlyName="'Đăng nhập'" FullSelectorArgument="&lt;webctrl parentid='kt_login_signin_submit' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='kt_login_signin_submit' tag='SPAN' type='' class='' aaname='Đăng nhập' check:innerText='Đăng nhập' /&gt;" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NClick>
+                    <Delay DisplayName="delay_3s" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="354,84" sap2010:WorkflowViewState.IdRef="Delay_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Delay>
+                    <uix:NCheckState DisplayName="check_app_state_danh_sach_dia_diem" sap:VirtualizedContainerService.HintSize="354,75" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="1de1a085-bb58-495d-b051-0aafe29e31d0" Version="V3">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Throw DisplayName="throw_se" Exception="[New SystemException(&quot;Cannot login to Hanet System&quot;)]" sap:VirtualizedContainerService.HintSize="388,115" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="https://connect.hanet.ai/vi/place" CvTextArea="616, 173, 144, 16" CvTextArgument="Danh sach dja diem" CvType="Text" DesignTimeRectangle="617, 169, 142, 28" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Danh sách địa điểm'" FullSelectorArgument="&lt;webctrl tag='H2' aaname='Danh sách địa điểm' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' aaname='Danh sách địa điểm' type='' class='my-auto text-base font-medium leading-[28px]' check:text='Danh sách địa điểm' /&gt;" Guid="10ac4d16-58f3-466f-8d6b-52cd49f5e282" InformativeScreenshot="9b7081eff203165cadb34166a594837f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                      </uix:NCheckState.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NCheckState>
+                  </Sequence>
+                </ActivityAction>
+              </ui:RetryScope.ActivityBody>
+              <ui:RetryScope.Condition>
+                <ActivityFunc x:TypeArguments="x:Boolean" />
+              </ui:RetryScope.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:RetryScope>
+            <ui:LogMessage DisplayName="log_login" sap:VirtualizedContainerService.HintSize="458,50" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;login successful&quot;]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVZSURBVGhD7Vr7bxRVFN6/QP8DwyuAb4lofCHGB76iYiLGKEZQY6I/aDTyA4lRghqMif7kI03BFm0VrQVrK6UKAQ2upaACATE8Swsp1HZ2Hrs7+z6eb7rX7s6emZ3ZouwaTvKlTefemfvdOec759xOBDarbfyiS5rHlk5bq0WnrdOS/JPqEhNri2KtM5q0i/9Z/PS12od8IVU2uL5hY80OCWfnmxtq8Qo21h7hX6KuC42EaKSufb4aeO14A/LFBsEFAucbdUfgoS6D+gbTtPArXbzuxpQIsBbTZa0xuq5dpwVf6rSo06DHvzPppe1xeu3nBL3Vn6RXdsTp6s9i4vxSzFyn0bPfW5TMFgi2rM8Ux7lRE4GrPo3R0l6T3hlIUueRFP16Jksj8TylcxMPL7VMnujN/oRDVroXgGtP9lp0NsGDi/bUln+BwHTepRU/xmnfaJY0u0DZyed5WoE5vbcnKd5PYV5bjHYMZ6iU/sPfnmMCCzbotH0oU7x9cItnCvQiu5R0T4Wn2V1yJZth85u8o8MQx7oRiMCV7DJdR9OUr/QQx+AmWCh22237/8rSDV94B+QMfqu7Rso3ZtjM0y28YdJ4NwIRWNSpU6IYXDC4Tv9IltYMJOiJzSbd9bXBgWvxLlYy+GivLd5TYTGrjjt09nBMzWdhkMa7EYjAkh7D8U8sfDff/JFu09m50jEIZsmW+QQjgrf9UOW87mNpumJ9deUCAhGARP52Nksf825eI0jizfy64UJuw1uDYrnHK8xvj9ExPVccPWlN+22a9Yk8x41ABKDR13+u05wW+fr7rDKS7TydFccrLN9iUSxVThzxtCqaEMdLCETAD0hkh8YrdxH2hs9C4IKQV7f/G+kCPfeDJc6RMGUCj3HmHeec4DaLXerejd5SCGXrPZEujp60M5zM7t8UTEKBKRFAEK7hbCwlNMQMSgxpHoC4OWFUTsTf5gUoPRSmRAC7uPl45S7CkDdu79AdPcdigZsAzgk3MpZz8pLyygCrnPQsL9RMYG4rMqjlJB3J4MtDZo5OAkaOBhnHWXGOxnJ0WMvRKUue13owJT7PC6EJzGYlepkrzL1cD40lC57ZuVZDrSU91wuhCMANtg2ly4quc233hQhgIDCBhZzMBrh8CGIaa/swu8gwuw9cBWVyLJV3kp1fBZtmNYZrSs/3QmACK3fGKcWijd3XeTHwaS9DdYngBZDFb2Xcxh0WgvpOrpvWs59LhtiQnu2HwASQsLAgKA/kc/UvieJjyw2ZFZlbuocCah3JoFzSeD+EDmKFvkG5N0ByksYrzOYa548x+e29u9u/8ZFQEwH0uFIRBnu9Sh0DIfCSXvTE0hw/1ETgwW+Msv5VGbqqB/iaNEdhcZdJo8JcBPfdneEUCKiJwAvb4mRyonLbaVYcBK00R+EZ3mXdVYHCRpN5J9ilOX6oiQBOGSQ5RLNTrZN6lROVOjopNSgQSgxpjh9CE4DCNO2zi48tt54AndQqVi/U/G6baCODF3EKoQnMZTnd8Kes49B3lBrSPIW3dyXKTiCU/XQqE6oKVQhNAPlgo0f/+8HvtnN2JM1TWO3hfpBlv/bTC6EJXMoEOg5XEkBRF0THcewo9c9hGvlShCYwpyUmniQ4vSz7tzSnFCglhoQ8sOlImi7/LwggiHHW4zbU/PcE0HH0wuh5R7kUV4bfWg5Ujx8JoQkAS7pNpzI9yCXB1pMZ55D32rZwu4cTjkd7TKe3eH6rJR7XBEFNBOoJFwicb/wv/s3a2P/oLn7kYbsuNAJSzqcG+GCCW0R87NE4JJq1FNaMD1WcL1ZAovgmGuZzm4nFRyJ/A32nHJfZqouaAAAAAElFTkSuQmCC" InformativeScreenshot="de1c02fd11039d55e52cf26f73ed2822.jpg" Selector="&lt;html app='chrome.exe' title='account.hanet.ai/login?callback=%2Foauth%2Fauthorize%3Fclient_id%3Dhanetconnect20220804T123456%26scope%3Dopenid%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fconnect.hanet.ai%252Fapi%252Fauth%252Fcallback%252Fhanet' /&gt;" Title="account.hanet.ai/login?callback=%2Foauth%2Fauthorize%3Fclient_id%3Dhanetconnect20220804T123456%26scope%3Dopenid%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fconnect.hanet.ai%252Fapi%252Fauth%252Fcallback%252Fhanet" Url="[strHanetLoginUrl]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="log_wf_finished" sap:VirtualizedContainerService.HintSize="554,75" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[String.Format(&quot;--- Finished: {0} ---&quot;, jobInfo.WorkflowName)]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+  </Sequence>
+</Activity>
