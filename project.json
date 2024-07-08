@@ -6,6 +6,7 @@
   "dependencies": {
     "GERT.Telegram.Activities": "[1.2.0]",
     "UiPath.Excel.Activities": "[2.22.3]",
+    "UiPath.GSuite.Activities": "[2.7.10-preview]",
     "UiPath.HttpWebhook.IntegrationService.Activities": "[5.0.0-preview]",
     "UiPath.Mail.Activities": "[1.21.1]",
     "UiPath.MicrosoftOffice365.Activities": "[2.5.8]",

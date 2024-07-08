@@ -12,5 +12,9 @@ NHÂN VIÊN ĐI MUỘN
 NHÂN VIÊN VẮNG MẶT
 {3}
 
+-----------------
+NHÂN VIÊN VỀ SỚM NGAY LÀM VIỆC TRƯỚC - ngày {4}
+{5}
+
 **********************
-Bluecom Robot ghi nhận điểm danh vào lúc {4}
+Bluecom Robot ghi nhận điểm danh vào lúc {6}

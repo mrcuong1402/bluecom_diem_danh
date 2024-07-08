@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="main" this:main._intRobotState="0" this:main._intFinalState="0" this:main._intExecutionDayOffset="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="main" this:main._intExecutionDayOffset="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="0 or empty: delete process_data&#xA;Else: keep process_data" Name="_intRobotState" Type="InArgument(x:Int32)" />
     <x:Property sap2010:Annotation.AnnotationText="Default: empty or 0" Name="_intFinalState" Type="InArgument(x:Int32)" />
@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1164,986</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1201,986</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
@@ -121,7 +121,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <StateMachine InitialState="{x:Reference __ReferenceID6}" sap2010:Annotation.AnnotationText="*** META ***&#xA;Process:            p001_process_name&#xA;Author(s):         sisua.developer&#xA;Creation date:  202X-XX-XX&#xA;Fmw version:    v4.0.0" DisplayName="main" sap:VirtualizedContainerService.HintSize="770,833" sap2010:WorkflowViewState.IdRef="StateMachine_2">
+    <StateMachine InitialState="{x:Reference __ReferenceID6}" sap2010:Annotation.AnnotationText="*** META ***&#xA;Process:            p001_process_name&#xA;Author(s):         sisua.developer&#xA;Creation date:  202X-XX-XX&#xA;Fmw version:    v4.0.0" DisplayName="main" sap:VirtualizedContainerService.HintSize="770,810" sap2010:WorkflowViewState.IdRef="StateMachine_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -784,7 +784,7 @@
             <Transition.To>
               <State x:Name="__ReferenceID4" DisplayName="2_hanet_extract_data_checkin" sap:VirtualizedContainerService.HintSize="213,64" sap2010:WorkflowViewState.IdRef="State_25">
                 <State.Entry>
-                  <Sequence sap2010:Annotation.AnnotationText="When copying this state, the only modification to be made is changing the condition of the below IF statement to match the process number." DisplayName="process_current_state" sap:VirtualizedContainerService.HintSize="630,1217" sap2010:WorkflowViewState.IdRef="Sequence_159">
+                  <Sequence sap2010:Annotation.AnnotationText="When copying this state, the only modification to be made is changing the condition of the below IF statement to match the process number." DisplayName="process_current_state" sap:VirtualizedContainerService.HintSize="630,1365" sap2010:WorkflowViewState.IdRef="Sequence_159">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -792,7 +792,7 @@
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[_intRobotState = 2 and _intRobotState &lt;= _intFinalState]" DisplayName="if_robot_state_is_this" sap:VirtualizedContainerService.HintSize="568,1087" sap2010:WorkflowViewState.IdRef="If_47">
+                    <If Condition="[_intRobotState = 2 and _intRobotState &lt;= _intFinalState]" DisplayName="if_robot_state_is_this" sap:VirtualizedContainerService.HintSize="568,1235" sap2010:WorkflowViewState.IdRef="If_47">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -800,7 +800,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <TryCatch DisplayName="tc_process_current_state" sap:VirtualizedContainerService.HintSize="534,884" sap2010:WorkflowViewState.IdRef="TryCatch_21">
+                        <TryCatch DisplayName="tc_process_current_state" sap:VirtualizedContainerService.HintSize="534,1032" sap2010:WorkflowViewState.IdRef="TryCatch_21">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -808,7 +808,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="try_process_current_state" sap:VirtualizedContainerService.HintSize="496,635" sap2010:WorkflowViewState.IdRef="Sequence_148">
+                            <Sequence DisplayName="try_process_current_state" sap:VirtualizedContainerService.HintSize="496,662" sap2010:WorkflowViewState.IdRef="Sequence_148">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="strTest" />
                               </Sequence.Variables>
@@ -817,7 +817,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="log_starting_state" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="LogMessage_105" Level="Info" Message="[&quot;----- Starting state: &quot;+ _intRobotState.ToString + &quot; -----&quot;]">
+                              <ui:LogMessage DisplayName="log_starting_state" sap:VirtualizedContainerService.HintSize="434,84" sap2010:WorkflowViewState.IdRef="LogMessage_105" Level="Info" Message="[&quot;----- Starting state: &quot;+ _intRobotState.ToString + &quot; -----&quot;]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -862,7 +862,7 @@
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                                 </ActivityAction.Argument>
-                                <Assign DisplayName="get_business_exception" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_105">
+                                <Assign DisplayName="get_business_exception" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_105">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="ui:BusinessRuleException">[excBusinessException]</OutArgument>
                                   </Assign.To>
@@ -872,7 +872,7 @@
                                 </Assign>
                               </ActivityAction>
                             </Catch>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="500,21" sap2010:WorkflowViewState.IdRef="Catch`1_39">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="500,22" sap2010:WorkflowViewState.IdRef="Catch`1_39">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -924,7 +924,7 @@
                     <Transition.To>
                       <State x:Name="__ReferenceID5" DisplayName="3_consolidate" sap:VirtualizedContainerService.HintSize="210,64" sap2010:WorkflowViewState.IdRef="State_24">
                         <State.Entry>
-                          <Sequence sap2010:Annotation.AnnotationText="When copying this state, the only modification to be made is changing the condition of the below IF statement to match the process number." DisplayName="process_current_state" sap:VirtualizedContainerService.HintSize="630,1242" sap2010:WorkflowViewState.IdRef="Sequence_161">
+                          <Sequence sap2010:Annotation.AnnotationText="When copying this state, the only modification to be made is changing the condition of the below IF statement to match the process number." DisplayName="process_current_state" sap:VirtualizedContainerService.HintSize="630,1322" sap2010:WorkflowViewState.IdRef="Sequence_161">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -932,7 +932,7 @@
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If Condition="[_intRobotState = 3 and _intRobotState &lt;= _intFinalState]" DisplayName="if_robot_state_is_this" sap:VirtualizedContainerService.HintSize="568,1112" sap2010:WorkflowViewState.IdRef="If_48">
+                            <If Condition="[_intRobotState = 3 and _intRobotState &lt;= _intFinalState]" DisplayName="if_robot_state_is_this" sap:VirtualizedContainerService.HintSize="568,1192" sap2010:WorkflowViewState.IdRef="If_48">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -940,7 +940,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <TryCatch DisplayName="tc_process_current_state" sap:VirtualizedContainerService.HintSize="534,826" sap2010:WorkflowViewState.IdRef="TryCatch_22">
+                                <TryCatch DisplayName="tc_process_current_state" sap:VirtualizedContainerService.HintSize="534,906" sap2010:WorkflowViewState.IdRef="TryCatch_22">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1063,7 +1063,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <Transition.Condition>[excSystemException is Nothing and excBusinessException is Nothing]</Transition.Condition>
                             <Transition.To>
-                              <State x:Name="__ReferenceID3" DisplayName="4_send_noti_tele" sap:VirtualizedContainerService.HintSize="676,1716" sap2010:WorkflowViewState.IdRef="State_23">
+                              <State x:Name="__ReferenceID3" DisplayName="4_send_noti_tele" sap:VirtualizedContainerService.HintSize="218,66" sap2010:WorkflowViewState.IdRef="State_23">
                                 <State.Entry>
                                   <Sequence sap2010:Annotation.AnnotationText="When copying this state, the only modification to be made is changing the condition of the below IF statement to match the process number." DisplayName="process_current_state" sap:VirtualizedContainerService.HintSize="630,1328" sap2010:WorkflowViewState.IdRef="Sequence_164">
                                     <sap:WorkflowViewStateService.ViewState>

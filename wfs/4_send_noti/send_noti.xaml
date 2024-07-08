@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1164,3961</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1364,3562</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_wf_template_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="62">
@@ -55,6 +55,8 @@
       <x:String>UiPath.Web.Activities</x:String>
       <x:String>System.Text</x:String>
       <x:String>System.Text.Json</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -132,13 +134,14 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>System.Text.Encoding.CodePages</AssemblyReference>
       <AssemblyReference>System.Text.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Description of the function of this workflow. Add specific details and business logic if it exists.&#xA;&#xA;*** META ***&#xA;Created on:    202X-0X-XX  ; sisua.developer&#xA;Modified on:  202X-0X-XX ; sisua.developer" DisplayName="send_noti" sap:VirtualizedContainerService.HintSize="795,3896" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Description of the function of this workflow. Add specific details and business logic if it exists.&#xA;&#xA;*** META ***&#xA;Created on:    202X-0X-XX  ; sisua.developer&#xA;Modified on:  202X-0X-XX ; sisua.developer" DisplayName="send_noti" sap:VirtualizedContainerService.HintSize="795,3925" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:CurrentJobInfo" Name="jobInfo" />
-      <Variable x:TypeArguments="x:String" Name="strHanetCheckinData" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtaHanetCheckin" />
+      <Variable x:TypeArguments="x:String" Name="strHanetData" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtaHanetData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtaProcessData" />
       <Variable x:TypeArguments="x:String" Name="strTeleApiKey" />
       <Variable x:TypeArguments="x:String" Name="strChannelId" />
@@ -146,9 +149,11 @@
       <Variable x:TypeArguments="x:String" Name="strIgnoreEmployees" />
       <Variable x:TypeArguments="s:String[]" Name="arrIgnoreEmployees" />
       <Variable x:TypeArguments="x:String" Name="strEmployeesInTime" />
-      <Variable x:TypeArguments="x:String" Name="strTeleMsg" />
+      <Variable x:TypeArguments="x:String" Name="strNoticeMsg" />
       <Variable x:TypeArguments="x:String" Name="strTeleTemplate" />
       <Variable x:TypeArguments="x:String" Name="strEmployeesMissed" />
+      <Variable x:TypeArguments="x:String" Name="strEmployeesLeaveSoon" />
+      <Variable x:TypeArguments="s:DateTime" Name="dtiEnd" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -156,7 +161,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="733,57" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="733,84" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -204,7 +209,7 @@
       </If.Then>
     </If>
     <ui:GetCurrentJobInfo DisplayName="get_current_job_info" sap:VirtualizedContainerService.HintSize="733,57" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[jobInfo]" />
-    <ui:LogMessage DisplayName="log_starting_wf" sap:VirtualizedContainerService.HintSize="733,57" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[String.Format(&quot;--- Starting: {0} ---&quot;, jobInfo.WorkflowName)]">
+    <ui:LogMessage DisplayName="log_starting_wf" sap:VirtualizedContainerService.HintSize="733,84" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[String.Format(&quot;--- Starting: {0} ---&quot;, jobInfo.WorkflowName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -212,12 +217,12 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:MultipleAssign DisplayName="assign_wf_config_parameters" sap:VirtualizedContainerService.HintSize="733,57" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+    <ui:MultipleAssign DisplayName="assign_wf_config_parameters" sap:VirtualizedContainerService.HintSize="733,303" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[strHanetCheckinData]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[strHanetData]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">[_dicConfig("HANET_DATA").ToString]</InArgument>
@@ -228,7 +233,7 @@
               <OutArgument x:TypeArguments="x:String">[strTeleApiKey]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">6411844631:AAHnWMrcWzjr8EmmvWsoiniFn9tTKi4XVnA</InArgument>
+              <InArgument x:TypeArguments="x:String">[_dicConfig("TELE_API_KEY").ToString]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -236,7 +241,7 @@
               <OutArgument x:TypeArguments="x:String">[strChannelId]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">-804214108</InArgument>
+              <InArgument x:TypeArguments="x:String">[_dicConfig("TELE_CHAT_ID").ToString]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -255,36 +260,50 @@
               <InArgument x:TypeArguments="s:String[]">[Split(strIgnoreEmployees, ",")]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:DateTime">[dtiEnd]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:DateTime">[If (Now.ToString("ddd") = "Mon", New DateTime(Now.AddDays(-2).Year, Now.AddDays(-2).Month, Now.AddDays(-2).Day, 12, 0, 0), New DateTime(Now.Year, Now.Month, Now.Day, 17, 30, 0))]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <ui:ReadTextFile File="{x:Null}" Content="[strTeleTemplate]" DisplayName="read_msg_template" FileName="inputs\tele_message.txt" sap:VirtualizedContainerService.HintSize="733,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtaHanetData]" DisplayName="read_file_checkin" sap:VirtualizedContainerService.HintSize="733,84" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="check_in" WorkbookPath="[strHanetData]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </ui:MultipleAssign>
-    <ui:ReadTextFile File="{x:Null}" Content="[strTeleTemplate]" DisplayName="read_msg_template" FileName="inputs\tele_message.txt" sap:VirtualizedContainerService.HintSize="733,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtaHanetCheckin]" DisplayName="read_file_checkin" sap:VirtualizedContainerService.HintSize="733,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="base" WorkbookPath="[strHanetCheckinData]">
+    </ui:ReadRange>
+    <Assign DisplayName="remove_ignore_employee" sap:VirtualizedContainerService.HintSize="733,57" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[dtaHanetData]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[dtaHanetData.AsEnumerable.Where(Function(x) Not arrIgnoreEmployees.Contains(x.Field(Of String)("id"))).CopyToDataTable]</InArgument>
+      </Assign.Value>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </ui:ReadRange>
-    <Assign DisplayName="remove_ignore_employee" sap:VirtualizedContainerService.HintSize="733,114" sap2010:WorkflowViewState.IdRef="Assign_6">
-      <Assign.To>
-        <OutArgument x:TypeArguments="sd:DataTable">[dtaHanetCheckin]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="sd:DataTable">[dtaHanetCheckin.AsEnumerable.Where(Function(x) Not arrIgnoreEmployees.Contains(x.Field(Of String)("id"))).CopyToDataTable]</InArgument>
-      </Assign.Value>
     </Assign>
-    <Sequence DisplayName="get_list_in_time" sap:VirtualizedContainerService.HintSize="733,225" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="get_list_in_time" sap:VirtualizedContainerService.HintSize="733,57" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -296,7 +315,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
-      <If Condition="[dtaHanetCheckin.AsEnumerable.Any(Function(x) x(&quot;is_late&quot;).ToString.ToUpper.Trim = &quot;FALSE&quot;)]" DisplayName="check_has_data" sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="If_2">
+      <If Condition="[dtaHanetData.AsEnumerable.Any(Function(x) x(&quot;is_late&quot;).ToString.ToUpper.Trim = &quot;FALSE&quot;)]" DisplayName="check_has_data" sap:VirtualizedContainerService.HintSize="388,48" sap2010:WorkflowViewState.IdRef="If_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -318,7 +337,7 @@
                       <OutArgument x:TypeArguments="sd:DataTable">[dtaProcessData]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="sd:DataTable">[dtaHanetCheckin.AsEnumerable.Where(Function(x) x("is_late").ToString.ToUpper.Trim = "FALSE").CopyToDataTable]</InArgument>
+                      <InArgument x:TypeArguments="sd:DataTable">[dtaHanetData.AsEnumerable.Where(Function(x) x("is_late").ToString.ToUpper.Trim = "FALSE").CopyToDataTable]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
@@ -389,10 +408,10 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence DisplayName="get_list_late" sap:VirtualizedContainerService.HintSize="733,815" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence DisplayName="get_list_late" sap:VirtualizedContainerService.HintSize="733,113" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -404,7 +423,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
-      <If Condition="[dtaHanetCheckin.AsEnumerable.Any(Function(x) x(&quot;is_late&quot;).ToString.ToUpper.Trim = &quot;TRUE&quot;)]" DisplayName="check_has_data" sap:VirtualizedContainerService.HintSize="575,638" sap2010:WorkflowViewState.IdRef="If_3">
+      <If Condition="[dtaHanetData.AsEnumerable.Any(Function(x) x(&quot;is_late&quot;).ToString.ToUpper.Trim = &quot;TRUE&quot;)]" DisplayName="check_has_data" sap:VirtualizedContainerService.HintSize="575,638" sap2010:WorkflowViewState.IdRef="If_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -426,7 +445,7 @@
                       <OutArgument x:TypeArguments="sd:DataTable">[dtaProcessData]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="sd:DataTable">[dtaHanetCheckin.AsEnumerable.Where(Function(x) x("is_late").ToString.ToUpper.Trim = "TRUE").CopyToDataTable]</InArgument>
+                      <InArgument x:TypeArguments="sd:DataTable">[dtaHanetData.AsEnumerable.Where(Function(x) x("is_late").ToString.ToUpper.Trim = "TRUE").CopyToDataTable]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
@@ -497,10 +516,10 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence DisplayName="get_list_missed" sap:VirtualizedContainerService.HintSize="733,1181" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence DisplayName="get_list_missed" sap:VirtualizedContainerService.HintSize="733,113" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -512,7 +531,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
-      <If Condition="[dtaHanetCheckin.AsEnumerable.Any(Function(x) x(&quot;missed&quot;).ToString.ToUpper.Trim = &quot;TRUE&quot;)]" DisplayName="check_has_data" sap:VirtualizedContainerService.HintSize="671,1004" sap2010:WorkflowViewState.IdRef="If_4">
+      <If Condition="[dtaHanetData.AsEnumerable.Any(Function(x) x(&quot;missed&quot;).ToString.ToUpper.Trim = &quot;TRUE&quot;)]" DisplayName="check_has_data" sap:VirtualizedContainerService.HintSize="671,1004" sap2010:WorkflowViewState.IdRef="If_4">
         <If.Then>
           <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="637,650" sap2010:WorkflowViewState.IdRef="Sequence_14">
             <sap:WorkflowViewStateService.ViewState>
@@ -529,7 +548,7 @@
                       <OutArgument x:TypeArguments="sd:DataTable">[dtaProcessData]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="sd:DataTable">[dtaHanetCheckin.AsEnumerable.Where(Function(x) x("missed").ToString.ToUpper.Trim = "TRUE").CopyToDataTable]</InArgument>
+                      <InArgument x:TypeArguments="sd:DataTable">[dtaHanetData.AsEnumerable.Where(Function(x) x("missed").ToString.ToUpper.Trim = "TRUE").CopyToDataTable]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
@@ -600,46 +619,204 @@
         </If.Else>
       </If>
     </Sequence>
-    <Assign DisplayName="assign" sap:VirtualizedContainerService.HintSize="733,114" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[strTeleMsg]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[String.Format(strTeleTemplate, Now.ToString("dd/MM/yyyy"), strEmployeesInTime.Trim, strEmployeesLate.Trim, strEmployeesMissed.Trim, Now.ToString("HH:mm dd/MM/yyyy"))]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:LogMessage DisplayName="log_msg" sap:VirtualizedContainerService.HintSize="733,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;sending message to chanel&quot;]" />
-    <gta:TelegramScope ContinueOnError="{x:Null}" APIKEY="[strTeleApiKey]" DisplayName="telegram_scope" sap:VirtualizedContainerService.HintSize="733,363" sap2010:WorkflowViewState.IdRef="TelegramScope_1">
-      <gta:TelegramScope.Body>
-        <ActivityAction x:TypeArguments="gt:IObjectContainer">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="gt:IObjectContainer" Name="ScopeActivity" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_3">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <gta:SendMessage ContinueOnError="{x:Null}" StatusCode="{x:Null}" ChatID="[strChannelId]" DisplayName="send_noti" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="SendMessage_1" TextMessage="[strTeleMsg]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </gta:SendMessage>
-          </Sequence>
-        </ActivityAction>
-      </gta:TelegramScope.Body>
+    <Sequence DisplayName="get_list_leave_soon" sap:VirtualizedContainerService.HintSize="733,1473" sap2010:WorkflowViewState.IdRef="Sequence_20">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </gta:TelegramScope>
-    <Sequence DisplayName="send_google_chat" sap:VirtualizedContainerService.HintSize="733,213" sap2010:WorkflowViewState.IdRef="Sequence_16">
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtaHanetData]" DisplayName="read_file_data" sap:VirtualizedContainerService.HintSize="671,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="check_out" WorkbookPath="[strHanetData]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ReadRange>
+      <Assign DisplayName="remove_ignore_employee" sap:VirtualizedContainerService.HintSize="671,57" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="sd:DataTable">[dtaHanetData]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="sd:DataTable">[dtaHanetData.AsEnumerable.Where(Function(x) Not arrIgnoreEmployees.Contains(x.Field(Of String)("id"))).CopyToDataTable]</InArgument>
+        </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Assign>
+      <ui:LogMessage DisplayName="log_get_data" sap:VirtualizedContainerService.HintSize="671,173" sap2010:WorkflowViewState.IdRef="LogMessage_13" Message="[&quot;get list employees leave soon&quot;]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <If Condition="[dtaHanetData.AsEnumerable.Any(Function(x) x(&quot;leave_soon&quot;).ToString.ToUpper.Trim = &quot;TRUE&quot;)]" DisplayName="check_has_data" sap:VirtualizedContainerService.HintSize="671,1003" sap2010:WorkflowViewState.IdRef="If_5">
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="637,650" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="assign" sap:VirtualizedContainerService.HintSize="575,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_22">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="sd:DataTable">[dtaProcessData]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="sd:DataTable">[dtaHanetData.AsEnumerable.Where(Function(x) x("leave_soon").ToString.ToUpper.Trim = "TRUE").CopyToDataTable]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:MultipleAssign>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtaProcessData]" DisplayName="fer_data_process" sap:VirtualizedContainerService.HintSize="575,414" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="541,227" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MultipleAssign DisplayName="assign" sap:VirtualizedContainerService.HintSize="479,139" sap2010:WorkflowViewState.IdRef="MultipleAssign_23">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[strEmployeesLeaveSoon]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[strEmployeesLeaveSoon +  row("name").ToString  + " - " + row("out").ToString + vbLf]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEachRow>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,192" sap2010:WorkflowViewState.IdRef="Sequence_19">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="assign" sap:VirtualizedContainerService.HintSize="434,104" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[strEmployeesLeaveSoon]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Assign DisplayName="assign" sap:VirtualizedContainerService.HintSize="733,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strNoticeMsg]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[String.Format(strTeleTemplate, Now.ToString("dd/MM/yyyy"), strEmployeesInTime.Trim, strEmployeesLate.Trim, strEmployeesMissed.Trim, dtiEnd.ToString("dd/MM/yyyy"), strEmployeesLeaveSoon, Now.ToString("HH:mm dd/MM/yyyy"))]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <ui:LogMessage DisplayName="log_msg" sap:VirtualizedContainerService.HintSize="733,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;sending message to chanel&quot;]" />
+    <TryCatch DisplayName="tc_send_tele_msg" sap:VirtualizedContainerService.HintSize="733,320" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <gta:TelegramScope ContinueOnError="{x:Null}" APIKEY="[strTeleApiKey]" DisplayName="telegram_scope" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="TelegramScope_1">
+          <gta:TelegramScope.Body>
+            <ActivityAction x:TypeArguments="gt:IObjectContainer">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="gt:IObjectContainer" Name="ScopeActivity" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,244" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <gta:SendMessage ContinueOnError="{x:Null}" StatusCode="{x:Null}" ChatID="[strChannelId]" DisplayName="send_noti" sap:VirtualizedContainerService.HintSize="354,156" sap2010:WorkflowViewState.IdRef="SendMessage_1" TextMessage="[strNoticeMsg]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </gta:SendMessage>
+              </Sequence>
+            </ActivityAction>
+          </gta:TelegramScope.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </gta:TelegramScope>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="log_send_msg" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Can't send Telegram Message&quot;]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <Sequence DisplayName="send_google_chat" sap:VirtualizedContainerService.HintSize="733,516" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="strWebhookChat" />
         <Variable x:TypeArguments="x:String" Name="strWebhookKey" />
@@ -648,27 +825,55 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[System.Text.Json.JsonSerializer.Serialize(New With { .text = strTeleMsg })]" BodyFormat="application/json" DisplayName="send_message" EnableSSLVerification="False" EndPoint="https://chat.googleapis.com/v1/spaces/AAAAqhezZHU/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&amp;token=tcWgeFUrc8MLRyGavS6QXYyjaDaY7EFAasSy9UxqA5U" sap:VirtualizedContainerService.HintSize="388,93" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="POST" TimeoutMS="6000">
-        <ui:HttpClient.Attachments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Attachments>
-        <ui:HttpClient.Cookies>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Cookies>
-        <ui:HttpClient.Headers>
-          <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/json</InArgument>
-        </ui:HttpClient.Headers>
-        <ui:HttpClient.Parameters>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.Parameters>
-        <ui:HttpClient.UrlSegments>
-          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-        </ui:HttpClient.UrlSegments>
-      </ui:HttpClient>
+      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,396" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+        <TryCatch.Try>
+          <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[System.Text.Json.JsonSerializer.Serialize(New With { .text = strNoticeMsg })]" BodyFormat="application/json" DisplayName="send_message" EnableSSLVerification="False" EndPoint="https://chat.googleapis.com/v1/spaces/AAAAqhezZHU/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&amp;token=tcWgeFUrc8MLRyGavS6QXYyjaDaY7EFAasSy9UxqA5U" sap:VirtualizedContainerService.HintSize="204,70" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="POST" TimeoutMS="6000">
+            <ui:HttpClient.Attachments>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+            </ui:HttpClient.Attachments>
+            <ui:HttpClient.Cookies>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+            </ui:HttpClient.Cookies>
+            <ui:HttpClient.Headers>
+              <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/json</InArgument>
+            </ui:HttpClient.Headers>
+            <ui:HttpClient.Parameters>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+            </ui:HttpClient.Parameters>
+            <ui:HttpClient.UrlSegments>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+            </ui:HttpClient.UrlSegments>
+          </ui:HttpClient>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <ui:LogMessage DisplayName="log_send_msg" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Can't send Google Message&quot;]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+      </TryCatch>
     </Sequence>
-    <ui:LogMessage DisplayName="log_wf_finished" sap:VirtualizedContainerService.HintSize="733,48" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[String.Format(&quot;--- Finished: {0} ---&quot;, jobInfo.WorkflowName)]">
+    <ui:LogMessage DisplayName="log_wf_finished" sap:VirtualizedContainerService.HintSize="733,75" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[String.Format(&quot;--- Finished: {0} ---&quot;, jobInfo.WorkflowName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
