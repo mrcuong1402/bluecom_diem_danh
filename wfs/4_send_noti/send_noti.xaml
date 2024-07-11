@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1364,3562</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1207,3240</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_wf_template_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="62">
@@ -137,7 +137,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Description of the function of this workflow. Add specific details and business logic if it exists.&#xA;&#xA;*** META ***&#xA;Created on:    202X-0X-XX  ; sisua.developer&#xA;Modified on:  202X-0X-XX ; sisua.developer" DisplayName="send_noti" sap:VirtualizedContainerService.HintSize="795,3925" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Description of the function of this workflow. Add specific details and business logic if it exists.&#xA;&#xA;*** META ***&#xA;Created on:    202X-0X-XX  ; sisua.developer&#xA;Modified on:  202X-0X-XX ; sisua.developer" DisplayName="send_noti" sap:VirtualizedContainerService.HintSize="795,3175" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:CurrentJobInfo" Name="jobInfo" />
       <Variable x:TypeArguments="x:String" Name="strHanetData" />
@@ -265,7 +265,7 @@
               <OutArgument x:TypeArguments="s:DateTime">[dtiEnd]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="s:DateTime">[If (Now.ToString("ddd") = "Mon", New DateTime(Now.AddDays(-2).Year, Now.AddDays(-2).Month, Now.AddDays(-2).Day, 12, 0, 0), New DateTime(Now.Year, Now.Month, Now.Day, 17, 30, 0))]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime">[If (Now.ToString("ddd") = "Mon", New DateTime(Now.AddDays(-2).Year, Now.AddDays(-2).Month, Now.AddDays(-2).Day, 12, 0, 0), New DateTime(Now.AddDays(-1).Year, Now.AddDays(-1).Month, Now.AddDays(-1).Day, 17, 30, 0))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -408,7 +408,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence DisplayName="get_list_late" sap:VirtualizedContainerService.HintSize="733,113" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence DisplayName="get_list_late" sap:VirtualizedContainerService.HintSize="733,57" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -516,7 +516,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence DisplayName="get_list_missed" sap:VirtualizedContainerService.HintSize="733,113" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence DisplayName="get_list_missed" sap:VirtualizedContainerService.HintSize="733,57" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -619,7 +619,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence DisplayName="get_list_leave_soon" sap:VirtualizedContainerService.HintSize="733,1473" sap2010:WorkflowViewState.IdRef="Sequence_20">
+    <Sequence DisplayName="get_list_leave_soon" sap:VirtualizedContainerService.HintSize="733,1474" sap2010:WorkflowViewState.IdRef="Sequence_20">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -656,7 +656,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:LogMessage>
-      <If Condition="[dtaHanetData.AsEnumerable.Any(Function(x) x(&quot;leave_soon&quot;).ToString.ToUpper.Trim = &quot;TRUE&quot;)]" DisplayName="check_has_data" sap:VirtualizedContainerService.HintSize="671,1003" sap2010:WorkflowViewState.IdRef="If_5">
+      <If Condition="[dtaHanetData.AsEnumerable.Any(Function(x) x(&quot;leave_soon&quot;).ToString.ToUpper.Trim = &quot;TRUE&quot;)]" DisplayName="check_has_data" sap:VirtualizedContainerService.HintSize="671,1004" sap2010:WorkflowViewState.IdRef="If_5">
         <If.Then>
           <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="637,650" sap2010:WorkflowViewState.IdRef="Sequence_18">
             <sap:WorkflowViewStateService.ViewState>
@@ -724,13 +724,13 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,192" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_19">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="assign" sap:VirtualizedContainerService.HintSize="434,104" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign DisplayName="assign" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[strEmployeesLeaveSoon]</OutArgument>
               </Assign.To>
@@ -759,7 +759,13 @@
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
     <ui:LogMessage DisplayName="log_msg" sap:VirtualizedContainerService.HintSize="733,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;sending message to chanel&quot;]" />
-    <TryCatch DisplayName="tc_send_tele_msg" sap:VirtualizedContainerService.HintSize="733,320" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="tc_send_tele_msg" sap:VirtualizedContainerService.HintSize="733,84" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
         <gta:TelegramScope ContinueOnError="{x:Null}" APIKEY="[strTeleApiKey]" DisplayName="telegram_scope" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="TelegramScope_1">
           <gta:TelegramScope.Body>
@@ -816,7 +822,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <Sequence DisplayName="send_google_chat" sap:VirtualizedContainerService.HintSize="733,516" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="send_google_chat" sap:VirtualizedContainerService.HintSize="733,113" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="strWebhookChat" />
         <Variable x:TypeArguments="x:String" Name="strWebhookKey" />
@@ -824,11 +830,11 @@
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,396" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,321" sap2010:WorkflowViewState.IdRef="TryCatch_2">
         <TryCatch.Try>
           <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[System.Text.Json.JsonSerializer.Serialize(New With { .text = strNoticeMsg })]" BodyFormat="application/json" DisplayName="send_message" EnableSSLVerification="False" EndPoint="https://chat.googleapis.com/v1/spaces/AAAAqhezZHU/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&amp;token=tcWgeFUrc8MLRyGavS6QXYyjaDaY7EFAasSy9UxqA5U" sap:VirtualizedContainerService.HintSize="204,70" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="POST" TimeoutMS="6000">
             <ui:HttpClient.Attachments>
@@ -849,10 +855,10 @@
           </ui:HttpClient>
         </TryCatch.Try>
         <TryCatch.Catches>
-          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>

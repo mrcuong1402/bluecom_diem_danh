@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1201,2527</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1207,989</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_wf_template_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="62">
@@ -126,7 +126,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Description of the function of this workflow. Add specific details and business logic if it exists.&#xA;&#xA;*** META ***&#xA;Created on:    202X-0X-XX  ; sisua.developer&#xA;Modified on:  202X-0X-XX ; sisua.developer" DisplayName="hanet_extract_data_checkin" sap:VirtualizedContainerService.HintSize="795,2462" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Description of the function of this workflow. Add specific details and business logic if it exists.&#xA;&#xA;*** META ***&#xA;Created on:    202X-0X-XX  ; sisua.developer&#xA;Modified on:  202X-0X-XX ; sisua.developer" DisplayName="hanet_extract_data_checkin" sap:VirtualizedContainerService.HintSize="541,924" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:CurrentJobInfo" Name="jobInfo" />
       <Variable x:TypeArguments="x:String" Name="strHanetDataRaw" />
@@ -141,7 +141,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="733,84" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -188,8 +188,8 @@
         </Sequence>
       </If.Then>
     </If>
-    <ui:GetCurrentJobInfo DisplayName="get_current_job_info" sap:VirtualizedContainerService.HintSize="733,57" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[jobInfo]" />
-    <ui:LogMessage DisplayName="log_starting_wf" sap:VirtualizedContainerService.HintSize="733,84" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[String.Format(&quot;--- Starting: {0} ---&quot;, jobInfo.WorkflowName)]">
+    <ui:GetCurrentJobInfo DisplayName="get_current_job_info" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[jobInfo]" />
+    <ui:LogMessage DisplayName="log_starting_wf" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[String.Format(&quot;--- Starting: {0} ---&quot;, jobInfo.WorkflowName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -197,7 +197,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:MultipleAssign DisplayName="assign_wf_config_parameters" sap:VirtualizedContainerService.HintSize="733,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+    <ui:MultipleAssign DisplayName="assign_wf_config_parameters" sap:VirtualizedContainerService.HintSize="479,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -229,7 +229,7 @@
               <OutArgument x:TypeArguments="s:DateTime">[dtiEnd]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="s:DateTime">[If (Now.ToString("ddd") = "Mon", New DateTime(Now.AddDays(-2).Year, Now.AddDays(-2).Month, Now.AddDays(-2).Day, 12, 0, 0), New DateTime(Now.Year, Now.Month, Now.Day, 17, 30, 0))]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime">[If (Now.ToString("ddd") = "Mon", New DateTime(Now.AddDays(-2).Year, Now.AddDays(-2).Month, Now.AddDays(-2).Day, 12, 0, 0), New DateTime(Now.AddDays(-1).Year, Now.AddDays(-1).Month, Now.AddDays(-1).Day, 17, 30, 0))]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -241,7 +241,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inv_hanet_format_data.xaml" sap:VirtualizedContainerService.HintSize="733,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="wfs\3_state\hanet_format_data.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inv_hanet_format_data.xaml" sap:VirtualizedContainerService.HintSize="479,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="wfs\3_state\hanet_format_data.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="_dicConfig">[_dicConfig]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="_strHanetCheckinDataRaw">[strHanetDataRaw]</InArgument>
@@ -254,7 +254,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <Sequence DisplayName="check_in_data" sap:VirtualizedContainerService.HintSize="733,113" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence DisplayName="check_in_data" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -418,10 +418,10 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:WriteRange>
     </Sequence>
-    <Sequence DisplayName="check_out_data" sap:VirtualizedContainerService.HintSize="733,1473" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence DisplayName="check_out_data" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -546,7 +546,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:WriteRange>
     </Sequence>
-    <ui:LogMessage DisplayName="log_wf_finished" sap:VirtualizedContainerService.HintSize="733,75" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[String.Format(&quot;--- Finished: {0} ---&quot;, jobInfo.WorkflowName)]">
+    <ui:LogMessage DisplayName="log_wf_finished" sap:VirtualizedContainerService.HintSize="479,48" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[String.Format(&quot;--- Finished: {0} ---&quot;, jobInfo.WorkflowName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
