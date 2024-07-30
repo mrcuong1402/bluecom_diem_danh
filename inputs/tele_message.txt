@@ -1,20 +1,21 @@
-Điểm danh ngày {0}
+﻿Điểm danh ngày {0}
+Giờ vào làm: {1}
 **********************
 
 NHÂN VIÊN ĐI ĐÚNG GIỜ
-{1}
------------------
-
-NHÂN VIÊN ĐI MUỘN
 {2}
 -----------------
 
-NHÂN VIÊN VẮNG MẶT
+NHÂN VIÊN ĐI MUỘN
 {3}
+-----------------
+
+NHÂN VIÊN VẮNG MẶT
+{4}
 
 -----------------
-NHÂN VIÊN VỀ SỚM NGAY LÀM VIỆC TRƯỚC - ngày {4}
-{5}
+NHÂN VIÊN VỀ SỚM NGAY LÀM VIỆC TRƯỚC - ngày {5}
+{6}
 
 **********************
-Bluecom Robot ghi nhận điểm danh vào lúc {6}
+Bluecom Robot ghi nhận điểm danh vào lúc {7}
