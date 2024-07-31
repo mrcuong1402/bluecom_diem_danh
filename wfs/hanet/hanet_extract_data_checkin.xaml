@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1207,2561</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848.8,2820</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_wf_template_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="62">
@@ -51,6 +51,8 @@
       <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
       <x:String>System.Security</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -124,7 +126,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Description of the function of this workflow. Add specific details and business logic if it exists.&#xA;&#xA;*** META ***&#xA;Created on:    202X-0X-XX  ; sisua.developer&#xA;Modified on:  202X-0X-XX ; sisua.developer" DisplayName="hanet_extract_data_checkin" sap:VirtualizedContainerService.HintSize="654,2496" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Description of the function of this workflow. Add specific details and business logic if it exists.&#xA;&#xA;*** META ***&#xA;Created on:    202X-0X-XX  ; sisua.developer&#xA;Modified on:  202X-0X-XX ; sisua.developer" DisplayName="hanet_extract_data_checkin" sap:VirtualizedContainerService.HintSize="678.4,2755.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:CurrentJobInfo" Name="jobInfo" />
       <Variable x:TypeArguments="x:String" Name="strHanetCheckinUrl" />
@@ -137,7 +139,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="592,84" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="616,56.8" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -202,8 +204,8 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:GetCurrentJobInfo DisplayName="get_current_job_info" sap:VirtualizedContainerService.HintSize="592,57" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[jobInfo]" />
-    <ui:LogMessage DisplayName="log_starting_wf" sap:VirtualizedContainerService.HintSize="592,84" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[String.Format(&quot;--- Starting: {0} ---&quot;, jobInfo.WorkflowName)]">
+    <ui:GetCurrentJobInfo DisplayName="get_current_job_info" sap:VirtualizedContainerService.HintSize="616,56.8" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[jobInfo]" />
+    <ui:LogMessage DisplayName="log_starting_wf" sap:VirtualizedContainerService.HintSize="616,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[String.Format(&quot;--- Starting: {0} ---&quot;, jobInfo.WorkflowName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -211,7 +213,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:MultipleAssign DisplayName="assign_wf_config_parameters" sap:VirtualizedContainerService.HintSize="592,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+    <ui:MultipleAssign DisplayName="assign_wf_config_parameters" sap:VirtualizedContainerService.HintSize="616,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -233,19 +235,19 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="use_browser_chrome_hanet_connect" sap:VirtualizedContainerService.HintSize="592,1682" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="e842d1ba-0a63-418d-818e-bb4a68375957" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="use_browser_chrome_hanet_connect" sap:VirtualizedContainerService.HintSize="616,2014.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="e842d1ba-0a63-418d-818e-bb4a68375957" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="558,1433" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="582.4,1765.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NGoToUrl DisplayName="go_to_url" sap:VirtualizedContainerService.HintSize="496,84" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[strHanetCheckinUrl]" Version="V3">
+            <uix:NGoToUrl DisplayName="go_to_url" sap:VirtualizedContainerService.HintSize="520,56.8" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[strHanetCheckinUrl]" Version="V3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -253,7 +255,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NGoToUrl>
-            <Delay DisplayName="delay_2s" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="496,84" sap2010:WorkflowViewState.IdRef="Delay_1">
+            <Delay DisplayName="delay_2s" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="520,56.8" sap2010:WorkflowViewState.IdRef="Delay_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -261,14 +263,14 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </Delay>
-            <Sequence DisplayName="check_in_data" sap:VirtualizedContainerService.HintSize="496,451" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="check_in_data" sap:VirtualizedContainerService.HintSize="520,630.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="type_date" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,84" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="e842d1ba-0a63-418d-818e-bb4a68375957" Text="[_dtiProcessingDate.ToString(&quot;dd/MM/yyyy&quot;) + &quot;[k(Enter)]&quot;]" Version="V3">
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="type_date" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="457.6,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="e842d1ba-0a63-418d-818e-bb4a68375957" Text="[_dtiProcessingDate.ToString(&quot;dd/MM/yyyy&quot;) + &quot;[k(Enter)]&quot;]" Version="V3">
                 <uix:NTypeInto.Target>
                   <uix:TargetAnchorable BrowserURL="https://connect.hanet.ai/vi/18078/person/checkin" DesignTimeRectangle="332, 164, 89, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'26/06/2024'" FullSelectorArgument="&lt;webctrl tag='INPUT' placeholder='Chọn ngày' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' placeholder='Chọn ngày' type='' class='' aaname='26/06/2024' /&gt;" Guid="912a2ea8-7089-416a-bc24-a4c757a0be6f" InformativeScreenshot="616c15574de097597dce7cbe7437ef47.png" ScopeSelectorArgument="&lt;html app='chrome.exe' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
                 </uix:NTypeInto.Target>
@@ -279,7 +281,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NTypeInto>
-              <Delay DisplayName="delay_2s" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="388,84" sap2010:WorkflowViewState.IdRef="Delay_2">
+              <Delay DisplayName="delay_2s" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="457.6,56.8" sap2010:WorkflowViewState.IdRef="Delay_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -287,18 +289,34 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Delay>
-              <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dtaCheckInOutData]" DisplayName="extract_data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Họ và tên' ReferenceIdx='1' Name='Họ và tên'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Họ và tên Url' ReferenceIdx='2' Name='Họ và tên Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Phòng ban' ReferenceIdx='3' Name='Phòng ban'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Chức vụ' ReferenceIdx='4' Name='Chức vụ'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Giờ vào' ReferenceIdx='5' Name='Giờ vào'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Giờ ra' ReferenceIdx='6' Name='Giờ ra'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='7' Name='Column-6'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Họ và tên' attr='fulltext' name2='Họ và tên Url' attr2='href' /&gt;&lt;column name='Phòng ban' attr='fulltext' /&gt;&lt;column name='Chức vụ' attr='fulltext' /&gt;&lt;column name='Giờ vào' attr='fulltext' /&gt;&lt;column name='Giờ ra' attr='fulltext' /&gt;&lt;column name='Column-6' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="388,84" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="e842d1ba-0a63-418d-818e-bb4a68375957" Version="V3">
-                <uix:NExtractData.Target>
-                  <uix:TargetAnchorable DesignTimeRectangle="294, 203, 1053, 594" DesignTimeScaleFactor="1" FriendlyName="'Họ và'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="5f2609f3-6054-4147-8d75-d9d95e1d8ce7" InformativeScreenshot="51268635d39c239967834778c360c7fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='HANET CONNECT' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
-                </uix:NExtractData.Target>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </uix:NExtractData>
-              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtaCheckInOutData]" DisplayName="write_file_checkin" sap:VirtualizedContainerService.HintSize="388,77" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="check_in" WorkbookPath="[strHanetCheckinDataRaw]">
+              <ui:RetryScope DisplayName="rs_extract_table" sap:VirtualizedContainerService.HintSize="457.6,344.8" sap2010:WorkflowViewState.IdRef="RetryScope_1" RetryInterval="00:00:10">
+                <ui:RetryScope.ActivityBody>
+                  <ActivityAction>
+                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,136.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dtaCheckInOutData]" DisplayName="extract_data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Họ và tên' ReferenceIdx='1' Name='Họ và tên'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Họ và tên Url' ReferenceIdx='2' Name='Họ và tên Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Phòng ban' ReferenceIdx='3' Name='Phòng ban'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Chức vụ' ReferenceIdx='4' Name='Chức vụ'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Giờ vào' ReferenceIdx='5' Name='Giờ vào'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Giờ ra' ReferenceIdx='6' Name='Giờ ra'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='7' Name='Column-6'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Họ và tên' attr='fulltext' name2='Họ và tên Url' attr2='href' /&gt;&lt;column name='Phòng ban' attr='fulltext' /&gt;&lt;column name='Chức vụ' attr='fulltext' /&gt;&lt;column name='Giờ vào' attr='fulltext' /&gt;&lt;column name='Giờ ra' attr='fulltext' /&gt;&lt;column name='Column-6' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="e842d1ba-0a63-418d-818e-bb4a68375957" Version="V3">
+                        <uix:NExtractData.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="294, 203, 1053, 594" DesignTimeScaleFactor="1" FriendlyName="'Họ và'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="5f2609f3-6054-4147-8d75-d9d95e1d8ce7" InformativeScreenshot="51268635d39c239967834778c360c7fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='HANET CONNECT' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                        </uix:NExtractData.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NExtractData>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:RetryScope.ActivityBody>
+                <ui:RetryScope.Condition>
+                  <ActivityFunc x:TypeArguments="x:Boolean" />
+                </ui:RetryScope.Condition>
+              </ui:RetryScope>
+              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtaCheckInOutData]" DisplayName="write_file_checkin" sap:VirtualizedContainerService.HintSize="457.6,49.6" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="check_in" WorkbookPath="[strHanetCheckinDataRaw]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -307,14 +325,14 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:WriteRange>
             </Sequence>
-            <Sequence DisplayName="check_out_data" sap:VirtualizedContainerService.HintSize="496,724" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="check_out_data" sap:VirtualizedContainerService.HintSize="520,931.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign sap:VirtualizedContainerService.HintSize="457.6,114.4" sap2010:WorkflowViewState.IdRef="Assign_1">
                 <Assign.To>
                   <OutArgument x:TypeArguments="s:DateTime">[_dtiProcessingDate]</OutArgument>
                 </Assign.To>
@@ -322,7 +340,7 @@
                   <InArgument x:TypeArguments="s:DateTime">[If (_dtiProcessingDate.ToString("ddd") = "Mon", New DateTime(_dtiProcessingDate.AddDays(-2).Year, _dtiProcessingDate.AddDays(-2).Month, _dtiProcessingDate.AddDays(-2).Day, 12, 0, 0), New DateTime(_dtiProcessingDate.AddDays(-1).Year, _dtiProcessingDate.AddDays(-1).Month, _dtiProcessingDate.AddDays(-1).Day, 17, 30, 0))]</InArgument>
                 </Assign.Value>
               </Assign>
-              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="type_date" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,250" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="e842d1ba-0a63-418d-818e-bb4a68375957" Text="[_dtiProcessingDate.ToString(&quot;dd/MM/yyyy&quot;) + &quot;[k(Enter)]&quot;]" Version="V3">
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="type_date" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="457.6,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="e842d1ba-0a63-418d-818e-bb4a68375957" Text="[_dtiProcessingDate.ToString(&quot;dd/MM/yyyy&quot;) + &quot;[k(Enter)]&quot;]" Version="V3">
                 <uix:NTypeInto.Target>
                   <uix:TargetAnchorable BrowserURL="https://connect.hanet.ai/vi/18078/person/checkin" DesignTimeRectangle="332, 164, 89, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'26/06/2024'" FullSelectorArgument="&lt;webctrl tag='INPUT' placeholder='Chọn ngày' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' placeholder='Chọn ngày' type='' class='' aaname='26/06/2024' /&gt;" Guid="912a2ea8-7089-416a-bc24-a4c757a0be6f" InformativeScreenshot="616c15574de097597dce7cbe7437ef47.png" ScopeSelectorArgument="&lt;html app='chrome.exe' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
                 </uix:NTypeInto.Target>
@@ -333,7 +351,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NTypeInto>
-              <Delay DisplayName="delay_2s" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="434,84" sap2010:WorkflowViewState.IdRef="Delay_3">
+              <Delay DisplayName="delay_2s" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="457.6,56.8" sap2010:WorkflowViewState.IdRef="Delay_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -341,18 +359,34 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Delay>
-              <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dtaCheckInOutData]" DisplayName="extract_data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Họ và tên' ReferenceIdx='1' Name='Họ và tên'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Họ và tên Url' ReferenceIdx='2' Name='Họ và tên Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Phòng ban' ReferenceIdx='3' Name='Phòng ban'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Chức vụ' ReferenceIdx='4' Name='Chức vụ'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Giờ vào' ReferenceIdx='5' Name='Giờ vào'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Giờ ra' ReferenceIdx='6' Name='Giờ ra'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='7' Name='Column-6'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Họ và tên' attr='fulltext' name2='Họ và tên Url' attr2='href' /&gt;&lt;column name='Phòng ban' attr='fulltext' /&gt;&lt;column name='Chức vụ' attr='fulltext' /&gt;&lt;column name='Giờ vào' attr='fulltext' /&gt;&lt;column name='Giờ ra' attr='fulltext' /&gt;&lt;column name='Column-6' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="434,84" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="e842d1ba-0a63-418d-818e-bb4a68375957" Version="V3">
-                <uix:NExtractData.Target>
-                  <uix:TargetAnchorable DesignTimeRectangle="294, 203, 1053, 594" DesignTimeScaleFactor="1" FriendlyName="'Họ và'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="5f2609f3-6054-4147-8d75-d9d95e1d8ce7" InformativeScreenshot="51268635d39c239967834778c360c7fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='HANET CONNECT' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
-                </uix:NExtractData.Target>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </uix:NExtractData>
-              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtaCheckInOutData]" DisplayName="write_file_checkin" sap:VirtualizedContainerService.HintSize="434,77" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="check_out" WorkbookPath="[strHanetCheckinDataRaw]">
+              <ui:RetryScope DisplayName="rs_extract_table" sap:VirtualizedContainerService.HintSize="457.6,344.8" sap2010:WorkflowViewState.IdRef="RetryScope_2" RetryInterval="00:00:10">
+                <ui:RetryScope.ActivityBody>
+                  <ActivityAction>
+                    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,136.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dtaCheckInOutData]" DisplayName="extract_data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Họ và tên' ReferenceIdx='1' Name='Họ và tên'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Họ và tên Url' ReferenceIdx='2' Name='Họ và tên Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Phòng ban' ReferenceIdx='3' Name='Phòng ban'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Chức vụ' ReferenceIdx='4' Name='Chức vụ'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Giờ vào' ReferenceIdx='5' Name='Giờ vào'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Giờ ra' ReferenceIdx='6' Name='Giờ ra'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='7' Name='Column-6'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Họ và tên' attr='fulltext' name2='Họ và tên Url' attr2='href' /&gt;&lt;column name='Phòng ban' attr='fulltext' /&gt;&lt;column name='Chức vụ' attr='fulltext' /&gt;&lt;column name='Giờ vào' attr='fulltext' /&gt;&lt;column name='Giờ ra' attr='fulltext' /&gt;&lt;column name='Column-6' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="e842d1ba-0a63-418d-818e-bb4a68375957" Version="V3">
+                        <uix:NExtractData.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="294, 203, 1053, 594" DesignTimeScaleFactor="1" FriendlyName="'Họ và'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="5f2609f3-6054-4147-8d75-d9d95e1d8ce7" InformativeScreenshot="51268635d39c239967834778c360c7fc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='HANET CONNECT' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                        </uix:NExtractData.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NExtractData>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:RetryScope.ActivityBody>
+                <ui:RetryScope.Condition>
+                  <ActivityFunc x:TypeArguments="x:Boolean" />
+                </ui:RetryScope.Condition>
+              </ui:RetryScope>
+              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtaCheckInOutData]" DisplayName="write_file_checkin" sap:VirtualizedContainerService.HintSize="457.6,49.6" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="check_out" WorkbookPath="[strHanetCheckinDataRaw]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -374,12 +408,12 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inv_utils_kill_processes.xaml" sap:VirtualizedContainerService.HintSize="592,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="wfs\_fmw\utils_kill_processes.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inv_utils_kill_processes.xaml" sap:VirtualizedContainerService.HintSize="616,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="wfs\_fmw\utils_kill_processes.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="s:String[]" x:Key="_arrProcessesToKill">[{"chrome"}]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="log_wf_finished" sap:VirtualizedContainerService.HintSize="592,75" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[String.Format(&quot;--- Finished: {0} ---&quot;, jobInfo.WorkflowName)]">
+    <ui:LogMessage DisplayName="log_wf_finished" sap:VirtualizedContainerService.HintSize="616,48" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[String.Format(&quot;--- Finished: {0} ---&quot;, jobInfo.WorkflowName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
