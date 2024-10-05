@@ -14,7 +14,7 @@ NHÂN VIÊN VẮNG MẶT
 {4}
 
 -----------------
-NHÂN VIÊN VỀ SỚM NGAY LÀM VIỆC TRƯỚC - ngày {5}
+NHÂN VIÊN VỀ SỚM NGÀY LÀM VIỆC TRƯỚC - ngày {5}
 {6}
 
 **********************
