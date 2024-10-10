@@ -123,7 +123,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <StateMachine InitialState="{x:Reference __ReferenceID6}" sap2010:Annotation.AnnotationText="*** META ***&#xA;Process:            p001_process_name&#xA;Author(s):         &#xA;Creation date:  202X-XX-XX&#xA;Fmw version:    v4.0.0" DisplayName="main" sap:VirtualizedContainerService.HintSize="600,740" sap2010:WorkflowViewState.IdRef="StateMachine_2">
+    <StateMachine InitialState="{x:Reference __ReferenceID6}" sap2010:Annotation.AnnotationText="*** META ***&#xA;Process:            p001_process_name&#xA;Author(s):         cuong&#xA;Creation date:  202X-XX-XX&#xA;Fmw version:    v4.0.0" DisplayName="main" sap:VirtualizedContainerService.HintSize="600,740" sap2010:WorkflowViewState.IdRef="StateMachine_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
